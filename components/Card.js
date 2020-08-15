@@ -3,26 +3,33 @@ import { Image, View, StyleSheet, Text } from "react-native";
 
 import colors from "../config/color";
 import defaultStyles from "../config/styles";
+import AppText from "../components/AppText";
 
-const width = defaultStyles.dimension.width;
-const height = defaultStyles.dimension.height;
-const itemHeight = defaultStyles.card.itemHeight;
-
-function Card({ image, title, subTitle }) {
-  console.log(width, height, itemHeight);
+function Card({
+  image,
+  title,
+  subTitle,
+  width = defaultStyles.dimension.width,
+  height = defaultStyles.card.itemHeight,
+}) {
+  console.log(width, height);
+  const dimension = { height: height, width: width - 20 };
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: image.url }}></Image>
+    <View style={[styles.container, dimension]}>
+      <Image
+        style={[styles.image, dimension]}
+        source={{ uri: image.url }}
+      ></Image>
       <View style={styles.textContainer}>
         {title && (
-          <Text numberOfLines={1} style={styles.title}>
+          <AppText numberOfLines={1} style={styles.title}>
             {title}
-          </Text>
+          </AppText>
         )}
         {subTitle && (
-          <Text numberOfLines={3} style={styles.subTitle}>
+          <AppText numberOfLines={3} style={styles.subTitle}>
             {subTitle}
-          </Text>
+          </AppText>
         )}
       </View>
     </View>
@@ -33,8 +40,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 10,
     elevation: 5,
-    width: width - 20,
-    height: itemHeight,
     margin: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0.5, height: 0.5 },
@@ -43,12 +48,10 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius: 10,
-    height: itemHeight,
-    width: width - 20,
     resizeMode: "contain",
   },
   textContainer: {
-    position: "absolute",
+    //position: "absolute",
     bottom: 10,
     margin: 10,
     left: 5,
@@ -57,7 +60,6 @@ const styles = StyleSheet.create({
     color: colors.white,
     elevation: 5,
     fontWeight: "bold",
-    fontSize: 22,
     shadowColor: "#000",
     shadowOffset: { width: 0.8, height: 0.8 },
     shadowOpacity: 1,

@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import color from "../config/color";
-function ActionIcon({ iconColor = color.dark, iconName, onPress, size = 30 }) {
+function ActionIcon({ iconColor = color.dark, iconName, onPress, size = 24 }) {
   return (
     <TouchableOpacity style={styles.icon} onPress={onPress}>
       <View
