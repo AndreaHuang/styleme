@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -12,6 +12,8 @@ import StylingScreen from "./screen/StylingScreen";
 import CartScreen from "./screen/CartScreen";
 import color from "./config/color";
 import LookDetailsScreen from "./screen/LookDetailsScreen";
+import ImageInputList from "./components/ImageInputList";
+import Screen from "./components/Screen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
